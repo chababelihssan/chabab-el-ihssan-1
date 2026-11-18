@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-
+          
       - run: npm ci
 
       - name: Security audit (يفشل فقط عند ثغرات خطيرة)
@@ -36,7 +36,7 @@ jobs:
       - name: Upload dist to DZSecurity via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
+        server: ${{ secrets.CPANEL_FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
